@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jam dinding01</title>
+    <link rel="stylesheet" href="jam.css">
+    <script>
+        const currentTime = () => {
+    const clockTime = document.querySelector(".clock-time");
+    const markingSeconds = document.querySelector(".marking-seconds")
+
+    let date = new Date();
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+
+    hh = hh <10 ? '0$(hh)' : hh;
+    mm = mm <10 ? '0$(mm)' : mm;
+    ss = ss <10 ? '0$(ss)' : ss;
+
+    const ssDegrees = (ss/60) * 360;
+    markingSeconds.style.transform = 'rotate($(ssdegrees)deg)';
+
+    let time = '$(hh):$(mm)';
+    clockTime.innerText = time;
+
+}
+
+currentTime();
+setInterval(currentTime,1000);
+    </script>
+</head>
+<body>
+   
+    <div class="clock">
+        <div class="outer-clock">
+            <div class="marking marking-one"></div>
+            <div class="marking marking-two"></div>
+            <div class="marking marking-three"></div>
+            <div class="marking marking-four"></div>
+            <div class="marking marking-seconds"></div>
+            <div class="inner-clock">
+                <div class="clock-time">12:47</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
